@@ -1,0 +1,63 @@
+print('\n\t\tFungsi\n')
+
+"""
+argumen berbentuk *arg berguna untuk memperoleh keseluruhan argumen 
+dalam fungsi bentuk tuple
+"""
+print("Argumen berbentuk *arg :")
+def tampilanarg(*arg): print(arg), print()
+
+tampilanarg(1,2,3,4,5)
+
+def terbesar(*arg):
+    maks = arg[0]
+    for nilai in arg[1:]:
+        if nilai > maks:
+            maks = nilai
+    return maks
+print('angka terbesar dari 2,6,1,3,7,9,1,100,790 = ',terbesar(2,6,1,3,7,9,1,100,790))
+print()
+
+"""
+argumen berbentuk **arg dapat digunakan untuk melewatkan struktur data 
+berjenis dictionary
+"""
+print('\nArgumen benbentuk **arg :')
+def perolehdict(**arg):
+    return arg
+
+print(perolehdict(indonesia="Jakarta",
+            philipina="Manila"))
+
+"""
+Variabel Global dan Lokal
+"""
+
+bilangan = 10
+def ubahbil():
+    bilangan_lokal = 69
+    global bilangan # membuat bilangan pada fungsi ubahbil() bersifat global, sehingga isinya bisa diubah
+    bilangan = 23
+    print("\nbilangan di fungsi =", bilangan_lokal)
+ubahbil()
+print(bilangan)
+print()
+
+"""
+fungsi tak bernama
+"""
+# lambda [arg1,arg2,..] : ekspresi
+f = lambda x,y: x + y
+print(f(4,5))
+print()
+
+"""
+Rekursif sebuah fungsi dapat digunakan untuk memanggil dirinya sendiri
+"""
+def faktorial(m):
+    if m == 0 or m == 1:
+        return 1 # jika m = 0 atau 1, maka hasilnya 1
+    else:
+        return m * faktorial(m-1) # jika m bukan 0 atau 1, maka hasilnya m * faktorial(m-1)
+print('Fungsi Rekursif =')
+print(faktorial(4))
